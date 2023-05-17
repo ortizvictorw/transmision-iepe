@@ -1,29 +1,60 @@
 'use client'
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from 'next/navigation'
 
 import Image from "next/image";
 import signOutUser from "@/firebase/loguot";
+import moment from "moment";
+
+import {
+  collection,
+  addDoc,
+} from "firebase/firestore";
+import { db } from "@/firebase/config";
+
+
 
 export default function CheckList() {
 
+  const [form, setForm] = useState<any>({
+    id: moment().format('MMMM Do YYYY, h:mm:ss a')
+  });
+
   const router = useRouter()
+
 
   const handleForm = async (event: any) => {
     event.preventDefault()
 
-    const { result, error } = await signOutUser();
+    await addDoc(collection(db, "informes"), {});
 
-    if (error) {
-      return console.log(error)
-    }
+    //const logout = await signOutUser();
+
+  /*   if ( logout.error) {
+      return console.log(logout.error)
+    } */
 
     // else successful
-    return router.push("/")
+    //return router.push("/")
+    
+  }
+
+  const handleFormValue = (event: any)=>{
+    const {id, type, value, checked} = event.target;
+    form[id] = type === 'checkbox' ? checked : value 
+    setForm(form)
+    verifyForm()
+
+    
+  }
+
+  const verifyForm=()=>{
+    console.log(Object.keys(form).length)
+    return Object.keys(form).length === 26
   }
 
   return (
-    <form onSubmit={handleForm} className="m-4 mt-6 w-full max-w-lg">
+    <form onSubmit={handleForm} onChange={(e)=>handleFormValue(e)} className="m-4 mt-6 w-full max-w-lg">
       <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
           <Image
             className='mx-auto w-auto'
@@ -36,16 +67,16 @@ export default function CheckList() {
       <div className="flex flex-wrap -mx-3 mb-6">
         <h1 className="font-bold mx-auto my-8 uppercase">Lista de chequeos de  transmisión</h1>
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-obs">
             Responsable de OBS
           </label>
-          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Menganito..." />
+          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="responsable-obs" type="text" placeholder="Menganito..." />
         </div>
         <div className="w-full md:w-1/2 px-3">
-          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-last-name">
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-cam">
             Responsable de Camaras
           </label>
-          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Fulanito.." />
+          <input  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="responsable-cam" type="text" placeholder="Fulanito.." />
         </div>
         <h1 className="font-bold mx-auto mt-16 mb-7 uppercase">ANTES DE COMENZAR</h1>
         <div className="w-full md:w-1/2 px-3">
@@ -166,7 +197,15 @@ export default function CheckList() {
           <label htmlFor="message" className="mt-6 block mb-2 text-sm font-medium text-gray-900 dark:text-white">¿Hubo algún problema?</label>
           <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escriba algun comentario..."></textarea>
           <div className="flex justify-center my-16">
-            <button type="submit" className=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">ENVIAR INFORME</button>
+            {
+              verifyForm() ? (
+                <button disabled={!verifyForm()} type="submit" className=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">ENVIAR INFORE</button>
+
+              ) :(
+                <button disabled={!verifyForm()} type="submit" className=" text-slate-700 bg-gradient-to-r from-blue-200 via-blue-200 to-blue-200 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">ENVIAR INFORME</button>
+
+              )
+            }
           </div>
         </div>
       </div>

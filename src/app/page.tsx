@@ -14,7 +14,6 @@ export default function Login() {
     event.preventDefault()
 
     const { result, error } = await signIn(email, password);
-    console.log(result)
     if (error) {
       return console.log(error)
     }
