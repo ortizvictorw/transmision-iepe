@@ -18,7 +18,9 @@ export default function Login() {
     const { result, error } = await signIn(email, password);
 
     if (error) {
+      setSubmit(false)
       return console.log(error)
+
     }
     setSubmit(false)
     
