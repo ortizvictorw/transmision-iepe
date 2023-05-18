@@ -26,11 +26,11 @@ export default function Login() {
     <main className=" dark:bg-slate-800 flex min-h-screen flex-col items-center justify-between p-24">
       <div className="w-full max-w-xs">
 
-          <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
+          <div className='flex min-h-full flex-1 flex-col justify-center py-12 '>
             <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
               <Image
                 className='mx-auto w-auto'
-                src='/ms-icon-150x150.png'
+                src='/android-icon-192x192.png'
                 alt='IEPE'
                 width={1000}
                 height={1000}
