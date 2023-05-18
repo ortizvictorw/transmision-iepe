@@ -23,7 +23,7 @@ export default function Login() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className=" dark:bg-slate-800 flex min-h-screen flex-col items-center justify-between p-24">
       <div className="w-full max-w-xs">
 
           <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
@@ -46,10 +46,10 @@ export default function Login() {
                   <div className="mb-5">
 
                   <label htmlFor='email'>Ingrese su correo</label>
-                  <input id='email' type='email' onChange={(e) => setEmail(e.target.value)} />
+                  <input className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id='email' type='email' onChange={(e) => setEmail(e.target.value)} />
                   </div>
                   <label htmlFor='password'>Ingrese su contraseña</label>
-                  <input id='password' type='password' onChange={(e) => setPassword(e.target.value)} />
+                  <input className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id='password' type='password' onChange={(e) => setPassword(e.target.value)} />
                   <button
                     type='submit'
                     className=' my-8 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
