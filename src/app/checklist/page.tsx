@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useRouter } from 'next/navigation'
 
 import Image from "next/image";
-import signOutUser from "@/firebase/loguot";
 import moment from "moment";
 
 import {
@@ -11,8 +10,7 @@ import {
   addDoc,
 } from "firebase/firestore";
 import { db } from "@/firebase/config";
-
-
+import signOutUser from "@/firebase/loguot";
 
 export default function CheckList() {
 
@@ -20,50 +18,51 @@ export default function CheckList() {
     id: moment().format('MMMM Do YYYY, h:mm:ss a')
   });
 
+  const [valid, setValid] = useState<any>();
+  const [submit, setSubmit] = useState<any>(false);
+
   const router = useRouter()
 
-
   const handleForm = async (event: any) => {
-    event.preventDefault()
+    try {
+      setSubmit(true)
+      event.preventDefault()
+      await addDoc(collection(db, "informes",), form);
+      setSubmit(false)
+      await signOutUser()
+      router.push("/")
 
-    await addDoc(collection(db, "informes"), {});
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setSubmit(false)
 
-    //const logout = await signOutUser();
+    }
 
-  /*   if ( logout.error) {
-      return console.log(logout.error)
-    } */
-
-    // else successful
-    //return router.push("/")
-    
   }
 
-  const handleFormValue = (event: any)=>{
-    const {id, type, value, checked} = event.target;
-    form[id] = type === 'checkbox' ? checked : value 
+  const handleFormValue = (event: any) => {
+    const { id, type, value, checked } = event.target;
+    form[id] = type === 'checkbox' ? checked : value
     setForm(form)
     verifyForm()
-
-    
   }
 
-  const verifyForm=()=>{
-    console.log(Object.keys(form).length)
-    return Object.keys(form).length === 26
+  const verifyForm = () => {
+    setValid(Object.keys(form).length === 26)
   }
 
   return (
-    <form onSubmit={handleForm} onChange={(e)=>handleFormValue(e)} className="m-4 mt-6 w-full max-w-lg">
+    <form onSubmit={handleForm} onChange={(e) => handleFormValue(e)} className="m-4 mt-6 w-full max-w-lg">
       <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-          <Image
-            className='mx-auto w-auto'
-            src='/ms-icon-150x150.png'
-            alt='IEPE'
-            width={500}
-            height={500}
-          />
-          </div>
+        <Image
+          className='mx-auto w-auto'
+          src='/ms-icon-150x150.png'
+          alt='IEPE'
+          width={500}
+          height={500}
+        />
+      </div>
       <div className="flex flex-wrap -mx-3 mb-6">
         <h1 className="font-bold mx-auto my-8 uppercase">Lista de chequeos de  transmisión</h1>
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -76,7 +75,7 @@ export default function CheckList() {
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-cam">
             Responsable de Camaras
           </label>
-          <input  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="responsable-cam" type="text" placeholder="Fulanito.." />
+          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="responsable-cam" type="text" placeholder="Fulanito.." />
         </div>
         <h1 className="font-bold mx-auto mt-16 mb-7 uppercase">ANTES DE COMENZAR</h1>
         <div className="w-full md:w-1/2 px-3">
@@ -198,11 +197,11 @@ export default function CheckList() {
           <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escriba algun comentario..."></textarea>
           <div className="flex justify-center my-16">
             {
-              verifyForm() ? (
-                <button disabled={!verifyForm()} type="submit" className=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">ENVIAR INFORE</button>
+              valid ? (
+                <button disabled={!valid} type="submit" className=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">{submit ? 'Enviando....' : 'ENVIAR INFORE'}</button>
 
-              ) :(
-                <button disabled={!verifyForm()} type="submit" className=" text-slate-700 bg-gradient-to-r from-blue-200 via-blue-200 to-blue-200 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">ENVIAR INFORME</button>
+              ) : (
+                <button disabled={valid} type="submit" className=" text-slate-700 bg-gradient-to-r from-blue-200 via-blue-200 to-blue-200 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">ENVIAR INFORE</button>
 
               )
             }
