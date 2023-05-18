@@ -23,7 +23,7 @@ export default function Login() {
   }
 
   return (
-    <main className=" dark:bg-slate-800 flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="w-full max-w-xs">
 
           <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
@@ -32,8 +32,8 @@ export default function Login() {
                 className='mx-auto w-auto'
                 src='/ms-icon-150x150.png'
                 alt='IEPE'
-                width={500}
-                height={500}
+                width={1000}
+                height={1000}
               />
               <h2 className=' text-center text-2xl font-bold leading-9 tracking-tight text-gray-900'>
               IEPE
