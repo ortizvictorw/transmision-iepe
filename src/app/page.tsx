@@ -20,7 +20,7 @@ export default function Login() {
     if (error) {
       setSubmit(false)
       return console.log(error)
-
+      alert('No eres miembro de transmisión')
     }
     setSubmit(false)
     
