@@ -100,12 +100,12 @@ export default function CheckList() {
 
           <div className="flex items-center">
             <input id="cel-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-            <label htmlFor="cel-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿El celular tiene caraga?</label>
+            <label htmlFor="cel-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿El celular tiene carga?</label>
           </div>
 
           <div className="flex items-center">
             <input id="web-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-            <label htmlFor="web-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Habre Youtube y Facebbok con la cuenta de IEPE?</label>
+            <label htmlFor="web-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Ingresa correctamente Youtube y Facebook con la cuenta de IEPE?</label>
           </div>
 
           <div className="flex items-center">
