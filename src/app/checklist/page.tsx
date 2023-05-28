@@ -53,7 +53,7 @@ export default function CheckList() {
   }
 
   return (
-    <form onSubmit={handleForm} onChange={(e) => handleFormValue(e)} className="m-4 mt-6 w-full max-w-lg">
+    <form onSubmit={handleForm} onChange={(e) => handleFormValue(e)} className="m-4 mt-6 w-full max-w-2xl bg-slate-300 px-16 rounded-md mx-auto">
       <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
         <Image
           className='mx-auto w-auto'
@@ -64,21 +64,24 @@ export default function CheckList() {
         />
       </div>
       <div className="flex flex-wrap -mx-3 mb-6">
-        <h1 className="font-bold mx-auto my-8 uppercase">Lista de chequeo</h1>
-        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <h1 className="font-bold mx-auto mt-16 mb-7 uppercase">Lista de chequeo</h1>
+
+        <div className="w-full p-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-obs">
             Responsable de OBS
           </label>
-          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="responsable-obs" type="text" placeholder="Menganito..." />
+          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="responsable-obs" type="text" placeholder="Menganito..." />
         </div>
-        <div className="w-full md:w-1/2 px-3">
+
+        <div className="w-full  px-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-cam">
             Responsable de Camaras
           </label>
           <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="responsable-cam" type="text" placeholder="Fulanito.." />
         </div>
+
         <h1 className="font-bold mx-auto mt-16 mb-7 uppercase">ANTES DE COMENZAR</h1>
-        <div className="w-full md:w-1/2 px-3">
+        <div className="w-full  px-3">
           <blockquote className="p-4 my-4 border-l-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
             <p className="text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">Éxodo 33:15-16</p>
           </blockquote>
@@ -109,6 +112,11 @@ export default function CheckList() {
           </div>
 
           <div className="flex items-center">
+            <input id="public-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+            <label htmlFor="public-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Esta en público la transmisión en Youtube?</label>
+          </div>
+
+          <div className="flex items-center">
             <input id="tittle-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
             <label htmlFor="tittle-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Hay título?</label>
           </div>
@@ -134,6 +142,21 @@ export default function CheckList() {
           </div>
 
           <h1 className="flex justify-center font-bold mx-auto mt-16 mb-7 uppercase">DURANTE LA TRANSMISIÓN</h1>
+     
+          <div className="flex items-center">
+            <input id="audio-facebook-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+            <label htmlFor="audio-facebook-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Sale bien el audio en Facebbok?</label>
+          </div>
+
+          <div className="flex items-center">
+            <input id="audio-youtube-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+            <label htmlFor="audio-youtube-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Sale bien el audio en Youtube?</label>
+          </div>
+
+          <div className="flex items-center">
+            <input id="shared-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+            <label htmlFor="shared-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Se compartio el link de transmisión en los grupos de IEPE?</label>
+          </div>
 
           <div className="flex items-center">
             <input id="offline-start-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
@@ -172,9 +195,38 @@ export default function CheckList() {
 
           <div className="flex items-center">
             <input id="category-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-            <label htmlFor="category-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Se colocó una categaria en Youtube</label>
+            <label htmlFor="category-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Se colocó la transmisión en una lista de reproducción en Youtube</label>
           </div>
 
+
+
+          <div className="flex items-center">
+            <input id="audio-ambiente-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+            <label htmlFor="audio-ambiente-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Se bajo el audio del ambiente en la prédica?</label>
+          </div>
+
+          <div className="w-full p-3 mt-3">
+
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="predica-tittle">
+          Colocar título de la prédica
+          </label>
+          <input id="predica-tittle" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Escriba título de la predicación..." />
+          
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold my-3" htmlFor="link-facebook">
+          Pegar link de Facebook
+          </label>
+          <input id="link-facebook" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="https://.." />
+          
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold my-3"  htmlFor="link-youtube">
+          Pegar link de Youtube
+          </label>
+          <input id="link-youtube" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="https://.." />
+        </div>
+
+        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold my-3"  htmlFor="link-youtube">
+          Colocar descripción
+          </label>
+          <textarea id="description-text" rows={4} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Escriba la descrición..."></textarea>
           <h1 className="flex justify-center font-bold mx-auto mt-16 mb-7 uppercase">AL FINALIZAR LA TRANSMISIÓN</h1>
 
           <div className="flex items-center">
@@ -193,8 +245,12 @@ export default function CheckList() {
             <input id="off-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
             <label htmlFor="off-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Se apagó PC, Joystick y Swich?</label>
           </div>
-          <label htmlFor="message" className="mt-6 block mb-2 text-sm font-medium text-gray-900 dark:text-white">¿Hubo algún problema?</label>
-          <textarea id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escriba algun comentario..."></textarea>
+          <label htmlFor="message" className="block uppercase tracking-wide text-gray-700 text-xs font-bold my-3">¿Algo para mejorar o comentar?</label>
+          <textarea id="message" rows={4} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="
+          *Comentario uno
+          
+          *Comentario dos
+          "></textarea>
           <div className="flex justify-center my-16">
             {
               valid ? (
