@@ -133,12 +133,12 @@ export default function CheckList() {
 
           <div className="flex items-center">
             <input id="video-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-            <label htmlFor="video-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Las cámaran funcionan bien?</label>
+            <label htmlFor="video-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Las cámaras funcionan bien?</label>
           </div>
 
           <div className="flex items-center">
             <input id="jostick-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-            <label htmlFor="jostick-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Las cámaran se mueven bien?</label>
+            <label htmlFor="jostick-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Las cámaras se mueven bien?</label>
           </div>
 
           <h1 className="flex justify-center font-bold mx-auto mt-16 mb-7 uppercase">DURANTE LA TRANSMISIÓN</h1>
