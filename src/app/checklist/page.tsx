@@ -207,11 +207,19 @@ export default function CheckList() {
 
           <div className="w-full p-3 mt-3">
 
+         
+
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="predica-tittle">
           Colocar título de la prédica
           </label>
           <input id="predica-tittle" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Escriba título de la predicación..." />
           
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold my-3" htmlFor="name-prise">
+          Colocar nombre de alabanza
+          </label>
+          <input id="name-prise" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Escriba nombre de alabanza..." />
+
+
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold my-3" htmlFor="link-facebook">
           Pegar link de Facebook
           </label>
@@ -261,6 +269,8 @@ export default function CheckList() {
 
               )
             }
+
+            
           </div>
         </div>
       </div>
