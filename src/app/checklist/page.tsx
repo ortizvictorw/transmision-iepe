@@ -83,7 +83,7 @@ export default function CheckList() {
         <h1 className="font-bold mx-auto mt-16 mb-7 uppercase">ANTES DE COMENZAR</h1>
         <div className="w-full  px-3">
           <blockquote className="p-4 my-4 border-l-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
-            <p className="text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">Éxodo 33:15-16</p>
+            <p className="text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">Colosenses 3:23</p>
           </blockquote>
 
           <div className="flex items-center mb-6">
