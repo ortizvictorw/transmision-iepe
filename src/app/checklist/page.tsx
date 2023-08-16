@@ -68,14 +68,14 @@ export default function CheckList() {
 
         <div className="w-full p-3">
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-obs">
-            Responsable de OBS
+            Operador de OBS
           </label>
           <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="responsable-obs" type="text" placeholder="Menganito..." />
         </div>
 
         <div className="w-full  px-3">
-          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-cam">
-            Responsable de Camaras
+         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-cam">
+            Responsable de Checklist
           </label>
           <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="responsable-cam" type="text" placeholder="Fulanito.." />
         </div>
@@ -188,10 +188,23 @@ export default function CheckList() {
             <label htmlFor="inicio-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Se creo el inicio con el titulo de la predica en canvas?</label>
           </div>
 
+          
+          <div className="flex items-center">
+            <input id="audio-ambiente-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+            <label htmlFor="audio-ambiente-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Se bajo el audio del ambiente en la prédica?</label>
+          </div>
+
           <div className="flex items-center">
             <input id="descripcion-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
             <label htmlFor="descripcion-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Se colocó la descripción en Youtube y Facebook?</label>
           </div>
+
+
+          <div className="flex items-center">
+            <input id="category-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+            <label htmlFor="category-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Se compartio en Youtube y Facebook el formulario para realizar el contacto?</label>
+          </div>
+
 
           <div className="flex items-center">
             <input id="category-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
@@ -199,11 +212,11 @@ export default function CheckList() {
           </div>
 
 
-
           <div className="flex items-center">
-            <input id="audio-ambiente-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-            <label htmlFor="audio-ambiente-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">¿Se bajo el audio del ambiente en la prédica?</label>
+            <input id="category-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+            <label htmlFor="category-checkbox" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Revisar el correo de IEPE para verificar si alguien completo el formulario -Entregarselo a Jose Cabrera-</label>
           </div>
+
 
           <div className="w-full p-3 mt-3">
 
