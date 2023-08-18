@@ -67,17 +67,17 @@ export default function CheckList() {
       <h1 className="font-bold mx-auto mt-16 mb-7 uppercase">Lista de chequeo</h1>
 
         <div className="w-full p-3">
-          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-obs">
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="operador-obs">
             Operador de OBS
           </label>
-          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="responsable-obs" type="text" placeholder="Menganito..." />
+          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="operador-obs" type="text" placeholder="Menganito..." />
         </div>
 
         <div className="w-full  px-3">
-         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-cam">
+         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="responsable-checklist">
             Responsable de Checklist
           </label>
-          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="responsable-cam" type="text" placeholder="Fulanito.." />
+          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="responsable-checklist" type="text" placeholder="Fulanito.." />
         </div>
 
         <h1 className="font-bold mx-auto mt-16 mb-7 uppercase">ANTES DE COMENZAR</h1>
